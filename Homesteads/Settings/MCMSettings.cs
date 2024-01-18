@@ -2,18 +2,11 @@
 using MCM.Abstractions.Attributes.v2;
 using MCM.Abstractions.Base.Global;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaleWorlds.InputSystem;
 
 namespace Homesteads {
-    internal sealed class MCMConfig : AttributeGlobalSettings<MCMConfig> {
-        public override string Id => "Homesteads";
-        public override string DisplayName => "Homesteads";
-        public override string FolderName => "Homesteads";
-        public override string FormatType => "xml";
+    public class MCMSettings : AttributeGlobalSettings<MCMSettings> {
+
 
         [SettingPropertyText("Toggle Edit Mode Types", Order = 1, HintText = "The button that is used to switch to an edit mode or turn it off.", RequireRestart = false)]
         [SettingPropertyGroup("Change Key Binds")]
@@ -129,5 +122,11 @@ namespace Homesteads {
             } catch (Exception) { return defaultKey; }
             return key;
         }
+
+        public override string Id { get { return base.GetType().Assembly.GetName().Name; } }
+        public override string DisplayName { get { return base.GetType().Assembly.GetName().Name; } }
+        public override string FolderName { get { return base.GetType().Assembly.GetName().Name; } }
+        public override string FormatType { get; } = "xml";
+        public bool LoadMCMConfigFile { get; set; } = true;
     }
 }

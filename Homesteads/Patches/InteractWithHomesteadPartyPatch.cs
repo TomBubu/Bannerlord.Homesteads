@@ -1,14 +1,8 @@
 ﻿using HarmonyLib;
 using Homesteads.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Encounters;
 using TaleWorlds.CampaignSystem.GameMenus;
-using TaleWorlds.CampaignSystem.Map;
 using TaleWorlds.CampaignSystem.Party;
 
 namespace Homesteads.Patches {

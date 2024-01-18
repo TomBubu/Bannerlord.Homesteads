@@ -1,17 +1,17 @@
-﻿using System;
+﻿using Homesteads.Models;
+using System;
 using System.Collections.Generic;
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.Party;
-using TaleWorlds.Localization;
-using TaleWorlds.CampaignSystem.Roster;
 using TaleWorlds.CampaignSystem.Actions;
-using Homesteads.Models;
-using TaleWorlds.SaveSystem;
 using TaleWorlds.CampaignSystem.Conversation;
-using TaleWorlds.CampaignSystem.GameMenus;
 using TaleWorlds.CampaignSystem.Encounters;
+using TaleWorlds.CampaignSystem.GameMenus;
 using TaleWorlds.CampaignSystem.Inventory;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Roster;
 using TaleWorlds.Core;
+using TaleWorlds.Localization;
+using TaleWorlds.SaveSystem;
 
 namespace Homesteads {
     public class HomesteadBehavior : CampaignBehaviorBase {
@@ -279,7 +279,8 @@ namespace Homesteads {
 
             homesteadParty.ActualClan = Hero.MainHero.Clan;
             homesteadParty.ShouldJoinPlayerBattles = true;
-            homesteadParty.Party.Visuals.SetMapIconAsDirty(); //SetVisualAsDirty();
+            //homesteadParty.Party.Visuals.SetMapIconAsDirty(); //SetVisualAsDirty();
+            homesteadParty.Party.SetVisualAsDirty();
 
             HomesteadMobileParties[homesteadParty] = component;
 

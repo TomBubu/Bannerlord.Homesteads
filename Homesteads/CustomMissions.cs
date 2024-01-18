@@ -1,19 +1,14 @@
-﻿using SandBox;
+﻿using Homesteads.MissionLogics;
+using Homesteads.Models;
+using SandBox;
+using SandBox.Conversation.MissionLogics;
 using SandBox.Missions.MissionLogics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SandBox.View;
 using TaleWorlds.Engine;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.MountAndBlade.Source.Missions;
 using TaleWorlds.MountAndBlade.Source.Missions.Handlers;
 using TaleWorlds.MountAndBlade.View;
-using Homesteads.Models;
-using Homesteads.MissionLogics;
-using SandBox.Conversation.MissionLogics;
-using SandBox.View;
 
 namespace Homesteads {
     public static class CustomMissions {

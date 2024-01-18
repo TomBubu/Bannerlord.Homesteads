@@ -155,7 +155,7 @@ namespace Homesteads.MissionLogics {
             Vec2 vec = rotationToSpawnWith.f.AsVec2;
             vec = vec.Normalized();
 
-            AgentBuildData buildData2 = buildData.InitialDirection(vec).CivilianEquipment(civilianEquipment).NoHorses(civilianEquipment).NoWeapons(false).ClothingColor1(Mission.PlayerTeam.Color).ClothingColor2(Mission.PlayerTeam.Color2).TroopOrigin(new PartyAgentOrigin(fromParty, characterObject)).Controller(controllerType);
+            AgentBuildData buildData2 = buildData.InitialDirection(vec).CivilianEquipment(civilianEquipment).NoHorses(spawnEntity != null).NoWeapons(false).ClothingColor1(Mission.PlayerTeam.Color).ClothingColor2(Mission.PlayerTeam.Color2).TroopOrigin(new PartyAgentOrigin(fromParty, characterObject)).Controller(controllerType);
 
             Hero? heroObject = characterObject.HeroObject;
             if (((heroObject != null) ? heroObject.ClanBanner : null) != null) {

@@ -1,14 +1,11 @@
-﻿using System;
+﻿using Homesteads.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaleWorlds.MountAndBlade;
-using TaleWorlds.Library;
-using TaleWorlds.InputSystem;
-using Homesteads.Models;
 using TaleWorlds.Engine;
-using MCM.Abstractions.Base.Global;
+using TaleWorlds.InputSystem;
+using TaleWorlds.Library;
+using TaleWorlds.MountAndBlade;
 
 namespace Homesteads.MissionLogics {
     public class HomesteadSceneEditingMissionLogic : MissionLogic {
@@ -65,7 +62,7 @@ namespace Homesteads.MissionLogics {
         }
 
         private void HandleInputOnTick(float dt) {
-            if (Input.IsKeyPressed(GlobalSettings<MCMConfig>.Instance.GetEditModeKey())) {
+            if (Input.IsKeyPressed(Homesteads.Settings.GetEditModeKey())) {
                 SwitchEditMode();
                 return;
             }
@@ -74,7 +71,7 @@ namespace Homesteads.MissionLogics {
                 return;
             // Below this are edit mode keys
 
-            if (Input.IsKeyPressed(GlobalSettings<MCMConfig>.Instance.GetPlaceKey())) {
+            if (Input.IsKeyPressed(Homesteads.Settings.GetPlaceKey())) {
                 // Press Q in building mode
                 if (editModeType == 1 && dummyEntity != null) {
                     homesteadScene.AddPlaceableEntityToCurrentScene(currentPlaceable, dummyEntity.GlobalPosition, dummyEntity.GetFrame().rotation);
@@ -106,7 +103,7 @@ namespace Homesteads.MissionLogics {
                 return;
             }
 
-            if (Input.IsKeyPressed(GlobalSettings<MCMConfig>.Instance.GetSetPlayerSpawnKey())) {
+            if (Input.IsKeyPressed(Homesteads.Settings.GetSetPlayerSpawnKey())) {
                 Vec3 newPlayerSpawnPosition = new Vec3(Agent.Main.Position.X, Agent.Main.Position.Y, Mission.Scene.GetGroundHeightAtPosition(Agent.Main.Position));
                 Mat3 newPlayerSpawnRotation = Agent.Main.Frame.rotation;
                 homesteadScene.PlayerSpawnRotation = newPlayerSpawnRotation;
@@ -119,45 +116,45 @@ namespace Homesteads.MissionLogics {
                 return;
             // Below this are keys only usable when the dummy entity is present
 
-            if (Input.IsKeyPressed(GlobalSettings<MCMConfig>.Instance.GetResetRotationKey())) {
+            if (Input.IsKeyPressed(Homesteads.Settings.GetResetRotationKey())) {
                 buildingModeSavedRotation = Mat3.Identity;
                 buildingModeSavedUpDown = Vec3.Zero;
                 return;
             }
 
             // rotate on side (x)
-            if (Input.IsKeyDown(GlobalSettings<MCMConfig>.Instance.GetRotateUpKey())) {
+            if (Input.IsKeyDown(Homesteads.Settings.GetRotateUpKey())) {
                 RotateDummyEntity(dt, "x");
                 return;
             }
-            if (Input.IsKeyDown(GlobalSettings<MCMConfig>.Instance.GetRotateDownKey())) {
+            if (Input.IsKeyDown(Homesteads.Settings.GetRotateDownKey())) {
                 RotateDummyEntity(dt, "x", false);
                 return;
             }
             // rotate forward (y)
-            if (Input.IsKeyDown(GlobalSettings<MCMConfig>.Instance.GetRotateTiltLeftKey())) {
+            if (Input.IsKeyDown(Homesteads.Settings.GetRotateTiltLeftKey())) {
                 RotateDummyEntity(dt, "y");
                 return;
             }
-            if (Input.IsKeyDown(GlobalSettings<MCMConfig>.Instance.GetRotateTiltRightKey())) {
+            if (Input.IsKeyDown(Homesteads.Settings.GetRotateTiltRightKey())) {
                 RotateDummyEntity(dt, "y", false);
                 return;
             }
             // rotate up (z)
-            if (Input.IsKeyDown(GlobalSettings<MCMConfig>.Instance.GetRotateTurnLeftKey())) {
+            if (Input.IsKeyDown(Homesteads.Settings.GetRotateTurnLeftKey())) {
                 RotateDummyEntity(dt, "z");
                 return;
             }
-            if (Input.IsKeyDown(GlobalSettings<MCMConfig>.Instance.GetRotateTurnRightKey())) {
+            if (Input.IsKeyDown(Homesteads.Settings.GetRotateTurnRightKey())) {
                 RotateDummyEntity(dt, "z", false);
                 return;
             }
             // up/down
-            if (Input.IsKeyDown(GlobalSettings<MCMConfig>.Instance.GetMoveUpKey())) {
+            if (Input.IsKeyDown(Homesteads.Settings.GetMoveUpKey())) {
                 buildingModeSavedUpDown += Vec3.Up * dt;
                 return;
             }
-            if (Input.IsKeyDown(GlobalSettings<MCMConfig>.Instance.GetMoveDownKey())) {
+            if (Input.IsKeyDown(Homesteads.Settings.GetMoveDownKey())) {
                 buildingModeSavedUpDown -= Vec3.Up * dt;
                 return;
             }
@@ -165,16 +162,16 @@ namespace Homesteads.MissionLogics {
             if (editModeType != 1)
                 return;
 
-            if (Input.IsKeyPressed(GlobalSettings<MCMConfig>.Instance.GetSwitchBuilderModeCategoryKey())) {
+            if (Input.IsKeyPressed(Homesteads.Settings.GetSwitchBuilderModeCategoryKey())) {
                 SwitchBuilderMenuCategory();
                 return;
             }
 
-            if (Input.IsKeyPressed(GlobalSettings<MCMConfig>.Instance.GetCycleRightKey())) {
+            if (Input.IsKeyPressed(Homesteads.Settings.GetCycleRightKey())) {
                 ChangeCurrentPlaceableIndex(1);
                 return;
             }
-            if (Input.IsKeyPressed(GlobalSettings<MCMConfig>.Instance.GetCycleLeftKey())) {
+            if (Input.IsKeyPressed(Homesteads.Settings.GetCycleLeftKey())) {
                 ChangeCurrentPlaceableIndex(-1);
                 return;
             }

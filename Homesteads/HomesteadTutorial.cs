@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Homesteads {
+﻿namespace Homesteads {
     public static class HomesteadTutorial {
         public static int TutorialStage {
             get {

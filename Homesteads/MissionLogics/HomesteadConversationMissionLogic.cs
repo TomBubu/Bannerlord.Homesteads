@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaleWorlds.MountAndBlade;
-using TaleWorlds.CampaignSystem;
+﻿using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
+using TaleWorlds.MountAndBlade;
 
 namespace Homesteads.MissionLogics {
     public class HomesteadConversationMissionLogic : MissionLogic {

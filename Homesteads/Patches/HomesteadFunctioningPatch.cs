@@ -1,17 +1,12 @@
 ﻿using HarmonyLib;
-using System;
+using Homesteads.Models;
 using System.Reflection;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.CampaignBehaviors;
+using TaleWorlds.CampaignSystem.GameComponents;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.CampaignSystem.Roster;
-using Homesteads.Models;
-using TaleWorlds.CampaignSystem.GameComponents;
 
 namespace Homesteads.Patches {
     [HarmonyPatch(typeof(DesertionCampaignBehavior), nameof(DesertionCampaignBehavior.DailyTickParty))]

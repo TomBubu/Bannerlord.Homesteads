@@ -1,18 +1,15 @@
 ﻿using HarmonyLib;
 using Homesteads.Models;
 using SandBox.View.Map;
+using SandBox.ViewModelCollection.Map;
 using SandBox.ViewModelCollection.Nameplate;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.Engine;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
-using SandBox.ViewModelCollection.Map;
 
 namespace Homesteads.Patches {
     [HarmonyPatch(typeof(PartyVisual), "AddMobileIconComponents")]
