@@ -69,7 +69,7 @@ namespace Homesteads.MissionLogics {
             if (playerSpawnRot == null)
                 playerSpawnRot = Mat3.Identity;
 
-            SpawnHomesteadAgent(null, playerSpawnPos, playerSpawnRot, PartyBase.MainParty, CharacterObject.PlayerCharacter, Agent.ControllerType.Player, "", false);
+            SpawnHomesteadAgent(null, playerSpawnPos, playerSpawnRot, PartyBase.MainParty, CharacterObject.PlayerCharacter, Agent.ControllerType.Player, "", true);
         }
 
         private void SpawnTroops() {
